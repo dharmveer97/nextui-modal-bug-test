@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/providers.js", "components/theme-switch.js", "components/primitives.js", "config/site.js", "config/fonts.js", "app/elements/AutocompleteInput.js", "app/elements/TextInput.js", "app/forms/CreateLotForm.js", "app/error.js", "app/layout.js", "app/page.js"],
   "exclude": ["node_modules"]
 }

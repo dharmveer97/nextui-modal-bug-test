@@ -4,7 +4,9 @@ import { withFormik } from 'formik';
 import * as yup from 'yup';
 import { isEmpty } from 'lodash';
 import { Button } from '@nextui-org/react';
-import { TextInput, AutocompleteInput } from '../elements';
+import AutocompleteInput from '../elements/AutocompleteInput';
+import TextInput  from '../elements/TextInput';
+import {allCategories} from '../../utils/allCategories'
 
 const CreateLotForm = (props) => {
   const {
@@ -19,8 +21,6 @@ const CreateLotForm = (props) => {
     setFieldValue,
   } = props;
 
-  const roles = ['warehouseWorker'];
-  const { loading, allUsers } = useFetchAllUsers({ roles });
 
   return (
     <form
@@ -73,19 +73,22 @@ const CreateLotForm = (props) => {
       </div>
 
       <div className="mt-2">
-        <AutocompleteInput
-          isLoading={loading}
-          allOptions={allUsers}
-          name="user"
-          selectedKey={values.user}
-          value={values.user}
-          handleChange={handleChange}
-          label="Assign to"
-          aria-label="Select user"
-          placeholder="Select Assign to"
-          onSelectionChange={(val) => setFieldValue('user', val)}
-          error={errors?.user && touched?.user ? errors?.user : undefined}
-        />
+      <AutocompleteInput
+            allOptions={allCategories}
+            name="category"
+            selectedKey={values.category}
+            value={values.category}
+            handleChange={handleChange}
+            label="Select Category"
+            aria-label="Select Category"
+            placeholder="Choose item from category list"
+            onSelectionChange={(val) => setFieldValue('category', val)}
+            error={
+              errors && errors.category && touched?.category
+                ? errors?.category
+                : undefined
+            }
+          />
       </div>
 
       <div className="">

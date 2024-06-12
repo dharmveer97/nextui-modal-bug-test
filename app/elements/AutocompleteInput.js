@@ -21,8 +21,6 @@ export default function AutocompleteInput({
         placeholder={placeholder}
         isLoading={isLoading || false}
         onError={error}
-        // selectedKey={value}
-        // onSelectionChange={setValue}
         size="lg"
       >
         {(item) => (
